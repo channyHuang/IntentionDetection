@@ -42,6 +42,27 @@ Simple Intention Detection
 | sendMessage | void(char*) | 发送输入数据 |
 | getCurrentSituation | const char*() | 获取离当前时刻最近的输出数据 |
 
+# 编译 
+需要依赖的头文件库：Eigen 和 [magic_enum](https://github.com/Neargye/magic_enum)
+
+c++可直接使用CMake编译。
+
+Java调用需要使用jni编译，在`jni`文件夹下创建`include`、`libs`、`src`三个文件夹和`Android.md`、`Ａpplication.mk`两个文件。
+
+其中`include`除了当前库的头文件外，还需要加上Eigen 和 [magic_enum](https://github.com/Neargye/magic_enum)的文件。
+
+文件结构：
+```c++
+|--- jni
+    |--- include
+        |--- eigen-3.4.0
+        |--- magic_enum
+        |--- xxx.h
+        |--- ...
+    |--- libs
+    |--- src
+```
+
 # Example
 ## c++/windows
 ```c++
@@ -63,5 +84,4 @@ int main() {
 }
 ```
 ## Java/windows
-```java
-```
+见`testInWindows/TestIntentionDetection.java`
